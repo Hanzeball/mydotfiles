@@ -1,0 +1,5 @@
+agkozak/zsh-z                                 
+zdharma-continuum/fast-syntax-highlighting 
+zsh-users/zsh-autosuggestions             
+zsh-users/zsh-completions                
+zsh-users/zsh-syntax-highlighting       
