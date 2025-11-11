@@ -1,0 +1,68 @@
+console_title_template = '{{ .UserName }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+[upgrade]
+source = 'cdn'
+interval = '168h'
+auto = false
+notice = false
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+background = 'transparent'
+
+[transient_prompt]
+background = "transparent"
+foreground = "green"
+template = " "
+
+    [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    template = "{{.Parent}}{{.Path}}\n"
+    background = 'transparent'
+    foreground = 'magenta'
+
+    [blocks.segments.properties]
+    style='folder'
+    folder_separator_icon = ' > '
+
+    [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = "green"
+    background = "transparent"
+    template = ""
+
+[valid_line]
+background = "transparent"
+foreground = "#ffffff"
+template = "<#e0def4,#286983> </><#286983,transparent></> "
+
+[error_line]
+background = "transparent"
+foreground = "#ffffff"
+template = "<#eb6f92,#286983> </><#286983,transparent></> "
+
+[[blocks]]
+type = 'rprompt'
+alignment = 'left'
+background = 'transparent'
+
+    [[blocks.segments]]
+    background = "transparent"
+    foreground = "cyan"
+    style = "plain"
+    template = "{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }} {{ .HEAD }}"
+    type = "git"
+
+    [blocks.segments.properties]
+    fetch_status = true
+    fetch_upstream_icon = true
+    branch_icon = " "
+    branch_ahead_icon = ""
+    branch_behind_icon = ""
+    branch_identical_icon = ""
+    source = "cli"

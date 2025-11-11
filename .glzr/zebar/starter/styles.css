@@ -1,0 +1,185 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+i {
+  color: rgb(255 255 255 / 95%);
+  margin-right: 7px;
+}
+
+body {
+  color: rgb(255 255 255 / 90%);
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  overflow: hidden;
+}
+
+div,
+span,
+p {
+  cursor: default;
+  user-select: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  /* border-bottom: 0px solid rgb(255 255 255 / 0%); */
+  /* background: linear-gradient(rgb(0 0 0 / 55%), rgb(198 198 198 / 10%)); */
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 4px 1.5vw;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 14px;
+  min-height: 25px;
+  border-bottom: 0px solid rgb(255 255 255 / 0%);
+  background: linear-gradient(rgb(255 255 255 / 15%), rgb(0 0 0 / 35%));
+}
+
+.left {
+  width: fit-content;
+  justify-content: left;
+  padding: 0 12px 0 12px;
+}
+
+.center {
+  width: 5vw;
+  justify-content: center;
+  justify-self: center;
+}
+
+.right {
+  width: fit-content;
+  justify-content: right;
+  justify-self: end;
+  padding: 1px 12px 0 12px;
+}
+
+.logo,
+.binding-mode,
+.tiling-direction,
+.paused-button,
+.network,
+.memory,
+.cpu,
+.battery {
+  margin-right: 20px;
+}
+
+.logo {
+  padding: 2.5px;
+  font-size: 18px;
+  color: rgb(255 255 255 / 100%);
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 15px #0073e6,
+      0 0 20px #0073e6,
+      0 0 25px #0073e6,
+      0 0 30px #0073e6,
+      0 0 35px #0073e6;
+  }
+  to {
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 30px #0073e6,
+      0 0 40px #0073e6,
+      0 0 50px #0073e6,
+      0 0 60px #0073e6,
+      0 0 70px #0073e6;
+  }
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+}
+
+.workspace {
+  background: rgb(255 255 255 / 5%);
+  margin-right: 4px;
+  padding: 4px 8px;
+  color: rgb(255 255 255 / 90%);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+
+  &.displayed {
+    /* background: rgb(255 255 255 / 15%); */
+    animation: rotate3d 0.7s;
+  }
+
+  &.focused,
+  &:hover {
+    /* background: rgb(255 255 255 / 50%); */
+    animation: rotate3d 0.7s;
+  }
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+.binding-mode,
+.tiling-direction,
+.paused-button {
+  background: rgb(255 255 255 / 15%);
+  color: rgb(255 255 255 / 90%);
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.binding-mode {
+  margin-right: 4px;
+}
+
+.cpu .high-usage {
+  color: #900029;
+}
+
+.battery {
+  position: relative;
+}
+
+.battery .charging-icon {
+  position: absolute;
+  font-size: 7px;
+  left: -8px;
+  top: 3px;
+}
